@@ -1,6 +1,14 @@
 import { Button } from 'react-bootstrap';
+import { useState } from 'react';
+import getJoke from '../api/jokeData';
+import Joke from '../components/Joke';
 
 function Home() {
+  const [joke, setJoke] = useState({});
+  const getAJoke = () => {
+    getJoke().then(setJoke);
+    console.warn(joke);
+  };
   return (
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
@@ -12,7 +20,8 @@ function Home() {
       }}
     >
       <h1>Welcome Home!</h1>
-      <Button>Get a Joke</Button>
+      <Joke joke={joke} />
+      <Button type="button" onClick={getAJoke}>Get a Joke</Button>
     </div>
   );
 }

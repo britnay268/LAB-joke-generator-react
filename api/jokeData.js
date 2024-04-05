@@ -1,6 +1,6 @@
 const endpoint = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw&type=twopart';
 
-const getRequest = () => new Promise((resolve, reject) => {
+const getJoke = () => new Promise((resolve, reject) => {
   fetch(endpoint, {
     method: 'GET',
     headers: {
@@ -12,4 +12,4 @@ const getRequest = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default getRequest;
+export default getJoke;
